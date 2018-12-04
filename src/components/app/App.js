@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 
 import ColorSwatch from '../colorSwatch/ColorSwatch'
 import colorWordsDict from '../../colorWordsDict.js';
@@ -36,10 +35,9 @@ class App extends Component {
     })
   }
   handleSubmit() {
+    let newColors = [];
     let randSeeds = this.createRandSeeds();
     console.log(randSeeds);
-
-    let newColors = [];
     let dictMacthingRules = this.findDictMatches();
     // shuffles the matching rules into a random order so "aqua cherry" won't always return a blueish color followed by a red one
     dictMacthingRules.sort(function() { return 0.5 - Math.random() });
@@ -92,14 +90,23 @@ class App extends Component {
   render() {
     return (
       <main>
-        <div className="color-swatches">
+        <section className="color-swatches">
           {this.state.colors.map((color, i) => {
             return <ColorSwatch color={color} key={color.id}></ColorSwatch>
           })}
-        </div>
-        <input type="textarea" value={this.state.seedText} onChange={this.handleChange} name="seedText"/>
-        <input type="number" value={this.state.numColors} onChange={this.handleChange} name="numColors" min="1" max="6"/>
-        <input type="submit" onClick={this.handleSubmit}/>
+        </section>
+        <section className="color-input">
+          <label>Describe your color palette: 
+            <textarea value={this.state.seedText} onChange={this.handleChange} name="seedText"/>
+          </label>
+          <br />
+          <label>How many colors: 
+            <input type="number" value={this.state.numColors} onChange={this.handleChange} name="numColors" min="1" max="6"/>
+          </label>
+          <label>Generate
+            <input type="submit" onClick={this.handleSubmit}/>
+          </label>
+        </section>
       </main>
     );
   }

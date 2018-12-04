@@ -6,9 +6,38 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(200, 200, 200);
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+main {
+  max-width: 930px;
+  padding: 4% 2%;
+  margin:  0 auto;
+}
+.color-swatches {
+  border: 1.5px solid black;
+  padding: 12px;
+  text-align: center;
+  min-height:  350px;
+}
+.color-swatch {
+  height:  350px;
+  width:  25%;
+  display: inline-block;
+}
+
+.color-input {
+	text-align: center;
+	font-size:  18px;
+}
+.color-input label {
+	display: inline-block;
+	padding:  10px;
+}
+.color-input textarea, .color-input input {
+	font-size:  18px;
 }
