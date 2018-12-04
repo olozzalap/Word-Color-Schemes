@@ -1,15 +1,15 @@
 main {
-  max-width: 900px;
+  max-width: 930px;
   padding: 4% 2%;
+  margin:  0 auto;
 }
 .color-swatches {
   border: 1.5px solid black;
   padding: 12px;
-  text-align: left;
+  text-align: center;
 }
 .color-swatch {
   height:  350px;
-  width:  200px;
-  margin:  10px;
+  width:  25%;
   display: inline-block;
 }

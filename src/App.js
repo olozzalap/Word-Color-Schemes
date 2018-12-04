@@ -13,6 +13,7 @@ class App extends Component {
         //   r: 233,
         //   g: 21,
         //   b: 188
+        //   id: "#1-233,21,188"
         // }
       ],
       seedText: "",
@@ -42,8 +43,8 @@ class App extends Component {
         // console.log(seed);
       }
       randSeeds.push(seed);
-      // console.log(randSeeds);
     }
+    console.log(randSeeds);
 
     let newColors = [];
     for (let i = 0; i < this.state.numColors; i++) {
@@ -52,6 +53,7 @@ class App extends Component {
       color.r = randSeeds[randSeedIndex] % this.state.colorFactorMaxValue;
       color.g = randSeeds[randSeedIndex + 1] % this.state.colorFactorMaxValue;
       color.b = randSeeds[randSeedIndex + 2] % this.state.colorFactorMaxValue;
+      color.id = "#" + (i + 1) + "-" + color.r + "," + color.g + "," + color.b;
       newColors.push(color);
     }
     this.setState({colors: newColors});
@@ -69,7 +71,7 @@ class App extends Component {
           {this.state.colors.map((color, i) => {
             return <article className="color-swatch" 
                             style={this.buildBackgroundColorStyle(color)}
-                            key={i + color.r + color.g + color.b}>
+                            key={color.id}>
                    </article>
           })}
         </div>
