@@ -96,16 +96,18 @@ class App extends Component {
           })}
         </section>
         <section className="color-input">
-          <label>Describe your color palette: 
+          <article className="seed-text">
+            <label>Describe your color palette:</label>
             <textarea value={this.state.seedText} onChange={this.handleChange} name="seedText"/>
-          </label>
-          <br />
-          <label>How many colors: 
+          </article>
+          <article className="num-colors">
+            <label>How many colors:</label> 
             <input type="number" value={this.state.numColors} onChange={this.handleChange} name="numColors" min="1" max="6"/>
-          </label>
-          <label>Generate
+          </article>
+          <article className="submit-colors">
+            <label>Generate</label>
             <input type="submit" onClick={this.handleSubmit}/>
-          </label>
+          </article>
         </section>
       </main>
     );
