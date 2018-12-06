@@ -1,3 +1,6 @@
+* {
+	box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
@@ -14,7 +17,7 @@ code {
 }
 
 main {
-  max-width: 930px;
+  max-width: 1000px;
   padding: 4% 2%;
   margin:  0 auto;
 }
@@ -26,8 +29,23 @@ main {
 }
 .color-swatch {
   height:  350px;
+  height:  46vh;
   width:  25%;
   display: inline-block;
+  position: relative;
+}
+.color-swatch:hover .color-swatch-inner {
+	opacity: 1;
+}
+.color-swatch-inner {
+	transition: .4s;
+	opacity: 0;
+	position: absolute;
+	top:  25%;
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+	font-weight: bold;
 }
 
 .color-input {
@@ -54,6 +72,23 @@ main {
 	margin: 5px auto;
 	font-size:  18px;
 }
+.color-input textarea, .color-input input {
+	background-color: white;
+	border-radius: 5px;
+	border:  1px solid black;
+}
+/* .color-input label {
+	min-height: 62px;
+} */
 .color-input textarea {
 	width:  100%;
+}
+
+@media (max-width: 768px) {
+	.color-input article.seed-text {
+		width:  100%;
+	}
+	.color-input article.num-colors, .color-input article.submit-colors {
+		width: 50%;
+	}
 }

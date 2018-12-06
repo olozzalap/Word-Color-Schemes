@@ -35,13 +35,15 @@ class App extends Component {
     })
   }
   handleSubmit() {
+    let startTime = Date.now();
+
     let newColors = [];
     let randSeeds = this.createRandSeeds();
-    console.log(randSeeds);
+    // console.log(randSeeds);
     let dictMacthingRules = this.findDictMatches();
     // shuffles the matching rules into a random order so "aqua cherry" won't always return a blueish color followed by a red one
     dictMacthingRules.sort(function() { return 0.5 - Math.random() });
-    console.log(dictMacthingRules);
+    // console.log(dictMacthingRules);
     for (let i = 0; i < this.state.numColors; i++) {
       let color = {};
       let randSeedIndex = i * this.state.numColorFactors;
@@ -59,6 +61,8 @@ class App extends Component {
       newColors.push(color);
     }
     this.setState({colors: newColors});
+
+    console.log("handleSubmit() took: "  + (Date.now() - startTime) + "ms to complete!");
   }
   createRandSeeds() {
     let returnSeeds = [];
@@ -75,6 +79,7 @@ class App extends Component {
   }
   findDictMatches() {
     let matchingRules = [];
+    // Matching Entries preserved in case we need to reference the whole matching dictionary object in the future
     let matchingEntries = colorWordsDict.filter((entry, i) => {
       for (let i = 0; i < entry.matches.length; i++) {
         if (this.state.seedText.indexOf(entry.matches[i]) >= 0) {
@@ -98,11 +103,11 @@ class App extends Component {
         <section className="color-input">
           <article className="seed-text">
             <label>Describe your color palette:</label>
-            <textarea value={this.state.seedText} onChange={this.handleChange} name="seedText"/>
+            <textarea value={this.state.seedText} onChange={this.handleChange} name="seedText" maxLength="500"/>
           </article>
           <article className="num-colors">
-            <label>How many colors:</label> 
-            <input type="number" value={this.state.numColors} onChange={this.handleChange} name="numColors" min="1" max="6"/>
+            <label>Colors:</label> 
+            <input type="number" value={this.state.numColors} onChange={this.handleChange} name="numColors" min="1" max="8"/>
           </article>
           <article className="submit-colors">
             <label>Generate</label>
