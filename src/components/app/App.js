@@ -30,6 +30,10 @@ class App extends Component {
     return Math.floor(Math.random() * this.state.colorFactorMaxValue);
   }
   handleChange(e) {
+    // input validations
+    if (e.target.name === "numColors" && e.target.value > 8) {
+      e.target.value = 8;
+    }
     this.setState({
       [e.target.name]: e.target.value
     })
