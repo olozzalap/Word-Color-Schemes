@@ -25,5 +25,34 @@ export default
 				bMax: 80
 			}
 		]
+	},
+	{
+		matches: ["beach", "surf", "island", "sand", "summer", "volleyball", "swim", "swimming"],
+		rules: [
+			{
+				rMin: 219,
+				rMax: 255,
+				gMin: 194,
+				gMax: 233,
+				bMin: 162,
+				bMax: 188
+			},
+			{
+				rMin: 0,
+				rMax: 16,
+				gMin: 172,
+				gMax: 212,
+				bMin: 231,
+				bMax: 255
+			},
+			{
+				rMin: 205,
+				rMax: 245,
+				gMin: 197,
+				gMax: 237,
+				bMin: 78,
+				bMax: 114
+			}
+		]
 	}
 ]
